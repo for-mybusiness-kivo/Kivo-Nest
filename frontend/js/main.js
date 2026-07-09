@@ -66,7 +66,7 @@ const ROUTES = {
 };
 
 async function router() {
-  let hash = window.location.hash.replace("#/", "") || "welcome";
+  let hash = window.location.hash.replace(/^#\/?/, "") || "welcome";
   const [route, ...params] = hash.split("/");
   const renderFn = ROUTES[route] || renderWelcome;
 
